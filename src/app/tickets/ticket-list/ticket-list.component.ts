@@ -16,10 +16,27 @@ export class TicketListComponent implements OnInit {
   }
 
   ngOnInit() {
+
   }
 
   ticketHasBeenSelected(hasBeenSelected: boolean) {
     console.log('event received from child:', hasBeenSelected);
+  }
+
+  ticketHasBeenDeleted(ticket: Ticket) {
+    this.ticketService.deleteTicket(ticket);
+  }
+
+  ticketHasBeenArchived(ticket: Ticket) {
+    this.ticketService.archiveTicket(ticket);
+  }
+
+  showArchivedTickets() {
+    this.ticketList = this.ticketList.filter(ticket => ticket.archived);
+  }
+
+  hideArchivedTickets() {
+    this.ticketList = this.ticketService.tickets$.getValue();
   }
 
 }

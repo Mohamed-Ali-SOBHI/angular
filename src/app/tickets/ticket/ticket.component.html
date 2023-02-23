@@ -4,4 +4,7 @@
   <i class="fas fa-calendar-alt"></i> {{ticket.date | date: 'shortTime'}} &nbsp;&nbsp;
   <i class="far fa-user"></i> {{ticket.student}}
   <i class="fa-sharp fa-solid fa-laptop"></i> {{ticket.major}}
+  <br>
+  <button (click)="deleteTicket(ticket)">Delete</button>
+  <button (click)="archiveTicket(ticket)">Archive</button>
 </div>
